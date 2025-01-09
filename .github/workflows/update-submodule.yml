@@ -1,0 +1,44 @@
+name: Update Organization Submodule
+
+on:
+  push:
+    branches: main
+
+jobs:
+  update-submodule:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup SSH Keys
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+      - name: Checkout organization repository
+        uses: actions/checkout@v3
+        with:
+          repository: "nettee-space/frontend-sample-code-registry"
+          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Git config
+        run: |
+          git config --global user.name "choi1five"
+          git config --global user.email "cwo1401@gmail.com"
+
+      - name: Update submodule
+        run: |
+          git submodule init
+          git submodule update --remote
+
+      - name: Commit and push if changed
+        run: |
+          if git diff --exit-code; then
+            echo "No changes to commit"
+            exit 0
+          fi
+
+          git add .
+          git commit -m "chore: update submodule"
+          git push origin main
