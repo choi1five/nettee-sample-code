@@ -1,31 +1,22 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse } from 'next/server';
 
-import { Comment, CreateCommentDTO } from "@/types";
+import { Comment, CreateCommentDTO } from '@/types';
 
-import { readData, writeData } from "../../route";
+import { readData, writeData } from '../../route';
 
-export async function GET(
-  request: NextRequest,
-  { params }: { params: Promise<{ id: string }> },
-) {
+export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
     const data = await readData();
     const { id } = await params;
-    const comments = data.comments.filter((c) => c.postId === id);
+    const comments = data.comments.filter(c => c.postId === id);
     return NextResponse.json(comments);
   } catch (error) {
-    console.error("Failed to fetch comments:", error);
-    return NextResponse.json(
-      { error: "Failed to fetch comments" },
-      { status: 500 },
-    );
+    console.error('Failed to fetch comments:', error);
+    return NextResponse.json({ error: 'Failed to fetch comments' }, { status: 500 });
   }
 }
 
-export async function POST(
-  request: NextRequest,
-  { params }: { params: Promise<{ id: string }> },
-) {
+export async function POST(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
     const body: CreateCommentDTO = await request.json();
     const data = await readData();
@@ -43,10 +34,7 @@ export async function POST(
 
     return NextResponse.json(newComment);
   } catch (error) {
-    console.error("Failed to create comment:", error);
-    return NextResponse.json(
-      { error: "Failed to create comment" },
-      { status: 500 },
-    );
+    console.error('Failed to create comment:', error);
+    return NextResponse.json({ error: 'Failed to create comment' }, { status: 500 });
   }
 }

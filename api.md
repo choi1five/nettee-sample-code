@@ -18,7 +18,7 @@ interface Post {
   updatedAt: string;
 }
 
-type CreatePostDTO = Pick<Post, "title" | "content" | "author">;
+type CreatePostDTO = Pick<Post, 'title' | 'content' | 'author'>;
 type UpdatePostDTO = Partial<CreatePostDTO>;
 ```
 
@@ -33,7 +33,7 @@ interface Comment {
   createdAt: string;
 }
 
-type CreateCommentDTO = Pick<Comment, "content" | "author">;
+type CreateCommentDTO = Pick<Comment, 'content' | 'author'>;
 ```
 
 ## Endpoints

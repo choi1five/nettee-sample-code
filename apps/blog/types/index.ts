@@ -20,6 +20,6 @@ export interface DatabaseStructure {
   comments: Comment[];
 }
 
-export type CreatePostDTO = Pick<Post, "title" | "content" | "author">;
+export type CreatePostDTO = Pick<Post, 'title' | 'content' | 'author'>;
 export type UpdatePostDTO = Partial<CreatePostDTO>;
-export type CreateCommentDTO = Pick<Comment, "content" | "author">;
+export type CreateCommentDTO = Pick<Comment, 'content' | 'author'>;

@@ -1,13 +1,13 @@
-import { promises as fs } from "fs";
-import { NextRequest, NextResponse } from "next/server";
-import path from "path";
+import { promises as fs } from 'fs';
+import { NextRequest, NextResponse } from 'next/server';
+import path from 'path';
 
-import { CreatePostDTO, DatabaseStructure, Post } from "@/types";
+import { CreatePostDTO, DatabaseStructure, Post } from '@/types';
 
-const dataFilePath = path.join(process.cwd(), "data/db.json");
+const dataFilePath = path.join(process.cwd(), 'data/db.json');
 
 export async function readData(): Promise<DatabaseStructure> {
-  const data = await fs.readFile(dataFilePath, "utf-8");
+  const data = await fs.readFile(dataFilePath, 'utf-8');
   return JSON.parse(data);
 }
 
@@ -20,11 +20,8 @@ export async function GET() {
     const data = await readData();
     return NextResponse.json(data.posts);
   } catch (error) {
-    console.error("Failed to fetch posts:", error);
-    return NextResponse.json(
-      { error: "Failed to fetch posts" },
-      { status: 500 },
-    );
+    console.error('Failed to fetch posts:', error);
+    return NextResponse.json({ error: 'Failed to fetch posts' }, { status: 500 });
   }
 }
 
@@ -45,10 +42,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(newPost);
   } catch (error) {
-    console.error("Failed to create post:", error);
-    return NextResponse.json(
-      { error: "Failed to create post" },
-      { status: 500 },
-    );
+    console.error('Failed to create post:', error);
+    return NextResponse.json({ error: 'Failed to create post' }, { status: 500 });
   }
 }

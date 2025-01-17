@@ -1,17 +1,17 @@
-import "@nettee-sample/ui/globals.css";
+import '@nettee-sample/ui/globals.css';
 
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono } from 'next/font/google';
 
-import { Providers } from "@/components/providers";
+import { Providers } from '@/components/providers';
 
 const fontSans = Geist({
-  subsets: ["latin"],
-  variable: "--font-sans",
+  subsets: ['latin'],
+  variable: '--font-sans',
 });
 
 const fontMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
+  subsets: ['latin'],
+  variable: '--font-mono',
 });
 
 export default function RootLayout({
@@ -21,9 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased `}
-      >
+      <body className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased`}>
         <Providers>{children}</Providers>
       </body>
     </html>

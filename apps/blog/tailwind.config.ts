@@ -1,1 +1,1 @@
-export * from "@nettee-sample/ui/tailwind.config";
+export * from '@nettee-sample/ui/tailwind.config';
