@@ -5,13 +5,13 @@
   "type": "module",
   "scripts": {
     "build": "turbo build",
+    "commitlint": "commitlint",
     "dev": "turbo dev",
-    "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "postinstall": "corepack enable",
-    "prepare": "husky",
+    "lint": "turbo lint",
     "lint-staged": "lint-staged",
-    "commitlint": "commitlint"
+    "prepare": "husky"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.6.1",
