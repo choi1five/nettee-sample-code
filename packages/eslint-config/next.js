@@ -34,6 +34,15 @@ export const nextJsConfig = [
     rules: {
       ...pluginNext.configs.recommended.rules,
       ...pluginNext.configs['core-web-vitals'].rules,
+      'react/jsx-sort-props': [
+        'error',
+        {
+          callbacksLast: true,
+          ignoreCase: true,
+          reservedFirst: true,
+          shorthandLast: true,
+        },
+      ],
     },
   },
   {
