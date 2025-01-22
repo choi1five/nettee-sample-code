@@ -1,0 +1,24 @@
+{
+  "folders": [
+    {
+      "name": "blog",
+      "path": "apps/blog",
+    },
+    {
+      "name": "ui",
+      "path": "packages/ui",
+    },
+    {
+      "name": "eslint-config",
+      "path": "packages/eslint-config",
+    },
+    {
+      "name": "typescript-config",
+      "path": "packages/typescript-config",
+    },
+    {
+      "name": "root",
+      "path": ".",
+    },
+  ],
+}
