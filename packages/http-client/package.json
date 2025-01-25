@@ -1,0 +1,22 @@
+{
+  "name": "@nettee-sample/http-client",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "devDependencies": {
+    "@nettee-sample/build-config": "workspace:*",
+    "@nettee-sample/typescript-config": "workspace:*",
+    "typescript": "^5.6.3"
+  }
+}
