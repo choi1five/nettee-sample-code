@@ -1,0 +1,11 @@
+{
+  "name": "@nettee-sample/build-config",
+  "type": "module",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "devDependencies": {
+    "tsup": "^8.3.5"
+  }
+}
