@@ -1,28 +1,13 @@
 import '@nettee-sample/ui/globals.css';
 
-import { Geist, Geist_Mono } from 'next/font/google';
-
-import { Providers } from '@/components/providers';
-
-const fontSans = Geist({
-  subsets: ['latin'],
-  variable: '--font-sans',
-});
-
-const fontMono = Geist_Mono({
-  subsets: ['latin'],
-  variable: '--font-mono',
-});
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased`}>
-        <Providers>{children}</Providers>
+    <html lang="ko">
+      <body>
+        <header className="mb-8 bg-black p-4">
+          <h1 className="text-3xl font-bold text-white">Sample_Code</h1>
+        </header>
+        <main className="mx-auto max-w-5xl p-4">{children}</main>
       </body>
     </html>
   );

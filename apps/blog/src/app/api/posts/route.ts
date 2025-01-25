@@ -1,19 +1,7 @@
-import { promises as fs } from 'fs';
 import { NextRequest, NextResponse } from 'next/server';
-import path from 'path';
 
-import { CreatePostDTO, DatabaseStructure, Post } from '@/types';
-
-const dataFilePath = path.join(process.cwd(), 'data/db.json');
-
-export async function readData(): Promise<DatabaseStructure> {
-  const data = await fs.readFile(dataFilePath, 'utf-8');
-  return JSON.parse(data);
-}
-
-export async function writeData(data: DatabaseStructure): Promise<void> {
-  await fs.writeFile(dataFilePath, JSON.stringify(data, null, 2));
-}
+import { readData, writeData } from '@/lib/api/json';
+import { CreatePostDTO, Post } from '@/types';
 
 export async function GET() {
   try {

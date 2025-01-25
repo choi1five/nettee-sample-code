@@ -23,3 +23,16 @@ export interface DatabaseStructure {
 export type CreatePostDTO = Pick<Post, 'title' | 'content' | 'author'>;
 export type UpdatePostDTO = Partial<CreatePostDTO>;
 export type CreateCommentDTO = Pick<Comment, 'content' | 'author'>;
+
+export interface CursorPaginationResponse {
+  data: Post[];
+  nextCursor: string | null;
+  hasMore: boolean;
+}
+
+export interface OffsetPaginationResponse {
+  data: Post[];
+  currentPage: number;
+  totalPages: number;
+  hasMore: boolean;
+}
