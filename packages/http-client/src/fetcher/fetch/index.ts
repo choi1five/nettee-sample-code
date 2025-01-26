@@ -1,5 +1,5 @@
-import { HttpClient, HttpClientConfig, RequestConfig } from '@/types';
 import { DEFAULT_HEADERS } from '@/constants';
+import { HttpClient, HttpClientConfig, RequestConfig } from '@/types';
 
 class FetchHttpClient implements HttpClient {
   private baseUrl: string;
@@ -38,6 +38,7 @@ class FetchHttpClient implements HttpClient {
   }: {
     method: string;
     url: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     data?: any;
     config?: RequestConfig;
   }): Promise<T> {
