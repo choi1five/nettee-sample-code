@@ -10,6 +10,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@nettee-sample/http-client": "workspace:*",
     "@nettee-sample/ui": "workspace:*",
     "lucide-react": "0.456.0",
     "next": "^15.1.0",
@@ -19,7 +20,6 @@
   },
   "devDependencies": {
     "@nettee-sample/eslint-config": "workspace:*",
-    "@nettee-sample/http-client": "workspace:*",
     "@nettee-sample/typescript-config": "workspace:*",
     "@types/node": "^20",
     "@types/react": "18.3.0",
