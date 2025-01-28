@@ -1,4 +1,4 @@
-import { cn } from '@nettee-sample/ui/lib/utils';
+import { cn } from '@nettee-sample/utils/style';
 import * as React from 'react';
 
 const Textarea = React.forwardRef<HTMLTextAreaElement, React.ComponentProps<'textarea'>>(
