@@ -1,5 +1,6 @@
 'use client';
 
+import { formatDate } from '@nettee-sample/utils/date';
 import Link from 'next/link';
 
 import { ROUTES } from '@/lib/constants/routes';
@@ -21,7 +22,7 @@ export default function PostItem({ ref, id, title, content, author, createdAt }:
           <p className="line-clamp-2 text-slate-600">{content}</p>
           <div className="flex justify-between text-sm text-slate-500">
             <span>{author}</span>
-            <time>{new Intl.DateTimeFormat('ko-KR').format(new Date(createdAt))}</time>
+            <time>{formatDate(createdAt)}</time>
           </div>
         </div>
       </Link>
