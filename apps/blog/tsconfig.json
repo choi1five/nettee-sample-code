@@ -5,7 +5,8 @@
     "paths": {
       "@/*": ["./src/*"],
       "@nettee-sample/ui/*": ["../../packages/ui/src/*"],
-      "@nettee-sample/http-client": ["../../packages/http-client/dist"]
+      "@nettee-sample/http-client": ["../../packages/http-client/dist"],
+      "@nettee-sample/hooks": ["../../packages/hooks/dist"]
     },
     "plugins": [
       {
