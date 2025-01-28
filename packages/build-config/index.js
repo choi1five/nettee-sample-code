@@ -1,15 +1,39 @@
 import { build } from 'tsup';
-import { readFileSync } from 'fs';
 
-const pkg = JSON.parse(readFileSync('./package.json', 'utf-8'));
+const getEntryPoints = exports => {
+  const entryPoints = {};
 
-const run = async ({ entryPoints = ['src/index.ts'], config = {} }) => {
+  const extractPath = (obj, prefix = '.') => {
+    for (const [key, value] of Object.entries(obj)) {
+      if (key === 'types' && typeof value === 'string') {
+        const srcPath = value.replace('./dist/', 'src/').replace('.d.ts', '.ts');
+
+        if (prefix === '.') {
+          entryPoints['index'] = srcPath;
+        } else {
+          const outPath = `${prefix.slice(2)}/index`;
+          entryPoints[outPath] = srcPath;
+        }
+      } else if (typeof value === 'object' && value !== null) {
+        extractPath(value, key);
+      }
+    }
+  };
+
+  extractPath(exports);
+
+  return entryPoints;
+};
+
+const run = async ({ pkg, config = {} }) => {
   const dev = process.argv.includes('--dev');
   const watch = process.argv.includes('--watch');
   const external = Object.keys({
     ...pkg.dependencies,
     ...pkg.peerDependencies,
   });
+
+  const entryPoints = pkg.exports ? getEntryPoints(pkg.exports) : ['src/index.ts'];
 
   const baseConfig = {
     entry: entryPoints,
@@ -20,7 +44,8 @@ const run = async ({ entryPoints = ['src/index.ts'], config = {} }) => {
     sourcemap: true,
     target: 'es2019',
     treeshake: true,
-    splitting: true,
+    splitting: false,
+    preserveModules: true,
     watch,
     external,
     ...config,
