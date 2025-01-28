@@ -10,6 +10,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@nettee-sample/hooks": "workspace:*",
     "@nettee-sample/http-client": "workspace:*",
     "@nettee-sample/ui": "workspace:*",
     "lucide-react": "0.456.0",
