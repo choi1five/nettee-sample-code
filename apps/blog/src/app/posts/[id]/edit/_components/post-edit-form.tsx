@@ -24,27 +24,27 @@ export default function EditForm({ post }: Props) {
     <form ref={formRef} action={formAction} className="space-y-6">
       <input name="id" value={post.id} hidden readOnly />
       <div className="space-y-2">
-        <Input name="title" placeholder="제목을 입력하세요" required defaultValue={post.title} />
+        <Input defaultValue={post.title} name="title" placeholder="제목을 입력하세요" required />
       </div>
       <div className="space-y-2">
         <Textarea
+          className="min-h-[300px] resize-none"
+          defaultValue={post.content}
           name="content"
           placeholder="내용을 입력하세요"
           required
-          className="min-h-[300px] resize-none"
-          defaultValue={post.content}
         />
       </div>
 
       <div className="space-y-2">
-        <Input name="author" placeholder="작성자" required defaultValue={post.author} />
+        <Input defaultValue={post.author} name="author" placeholder="작성자" required />
       </div>
 
       <div className="flex justify-end gap-2">
         <Button type="button" variant="outline" onClick={() => router.back()}>
           취소
         </Button>
-        <Button type="submit" disabled={isPending}>
+        <Button disabled={isPending} type="submit">
           {isPending ? '수정 중...' : '수정 완료'}
         </Button>
       </div>

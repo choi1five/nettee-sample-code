@@ -1,13 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 import { readData } from '@/lib/api/json';
-import { CursorPaginationResponse } from '@/types';
+import { GetPostsResponse } from '@/types';
 
 const DEFAULT_LIMIT = 10;
 
 export async function GET(
   request: NextRequest
-): Promise<NextResponse<CursorPaginationResponse> | NextResponse<{ error: string }>> {
+): Promise<NextResponse<GetPostsResponse> | NextResponse<{ error: string }>> {
   try {
     const searchParams = request.nextUrl.searchParams;
     const limit = Number(searchParams.get('limit')) || DEFAULT_LIMIT;

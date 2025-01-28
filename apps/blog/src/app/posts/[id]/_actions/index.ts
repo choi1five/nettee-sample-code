@@ -21,24 +21,3 @@ export async function createComment(_: unknown, formData: FormData) {
     return { error: '댓글 작성에 실패했습니다.' };
   }
 }
-
-// export async function createTestComment(postId: string) {
-//   try {
-//     await commentAPI.create(postId, { content: "test" + (Math.random() * 100).toString(), author: "test" });
-//     revalidatePath(`/posts/${postId}`);
-//   } catch (error) {
-//     console.error(error);
-//     return { error: "댓글 작성에 실패했습니다." };
-//   }
-// }
-export async function createTestComment(formData: FormData) {
-  console.log(123123, formData);
-  const postId = formData.get('postId') as string;
-  try {
-    // await commentAPI.create(postId, { content: "test" + (Math.random() * 100).toString(), author: "test" });
-    // revalidatePath(`/posts/${postId}`);
-  } catch (error) {
-    console.error(error);
-    return { error: '댓글 작성에 실패했습니다.' };
-  }
-}

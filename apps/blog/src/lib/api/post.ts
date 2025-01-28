@@ -1,10 +1,17 @@
-import { CreatePostDTO, Post, UpdatePostDTO } from '@/types';
+import { CreatePostDTO, GetPostsResponse, Post, UpdatePostDTO } from '@/types';
 
+import { buildQueryString } from '../utils/query';
 import { httpClient } from './http-client';
 
 const postAPI = {
   getAll() {
     return httpClient.get<Post[]>('/posts');
+  },
+
+  getCursor(cursor: string | null = '', limit?: number) {
+    const queryString = buildQueryString({ cursor, limit });
+
+    return httpClient.get<GetPostsResponse>(`/posts/infinite${queryString}`);
   },
 
   get(postId: string) {

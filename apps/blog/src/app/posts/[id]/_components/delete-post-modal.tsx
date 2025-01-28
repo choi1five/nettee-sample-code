@@ -53,9 +53,9 @@ export default function DeletePostModal({ postId }: Props) {
         <AlertDialogFooter>
           <AlertDialogCancel>취소</AlertDialogCancel>
           <AlertDialogAction
-            onClick={handleDelete}
+            className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
             disabled={isDeleting}
-            className="bg-destructive text-destructive-foreground hover:bg-destructive/90">
+            onClick={handleDelete}>
             {isDeleting ? '삭제 중...' : '삭제'}
           </AlertDialogAction>
         </AlertDialogFooter>
