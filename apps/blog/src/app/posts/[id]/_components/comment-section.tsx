@@ -1,3 +1,5 @@
+import { DATE_FORMAT, formatDate } from '@nettee-sample/utils/date';
+
 import { Comment } from '@/types';
 
 import CommentForm from './comment-form';
@@ -16,7 +18,7 @@ export default function CommentSection({ postId, comments }: Props) {
             <p className="mb-2 text-slate-600">{comment.content}</p>
             <div className="flex justify-between text-sm text-slate-500">
               <span>{comment.author}</span>
-              <time>{new Date(comment.createdAt).toLocaleString()}</time>
+              <time>{formatDate(comment.createdAt, DATE_FORMAT.WITH_TIME)}</time>
             </div>
           </div>
         ))}

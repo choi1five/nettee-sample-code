@@ -1,4 +1,5 @@
 import { Button } from '@nettee-sample/ui/components/button';
+import { DATE_FORMAT, formatDate } from '@nettee-sample/utils/date';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
@@ -33,7 +34,7 @@ export default async function PostDetail({ params }: Props) {
           </div>
           <div className="flex justify-between text-sm text-slate-500">
             <span>{post.author}</span>
-            <time>{new Date(post.createdAt).toLocaleString()}</time>
+            <time>{formatDate(post.createdAt, DATE_FORMAT.WITH_TIME)}</time>
           </div>
           <p className="whitespace-pre-wrap text-slate-600">{post.content}</p>
         </div>
