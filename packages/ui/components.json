@@ -12,9 +12,9 @@
   "iconLibrary": "lucide",
   "aliases": {
     "components": "@nettee-sample/ui/components",
-    "utils": "@nettee-sample/ui/lib/utils",
+    "utils": "@nettee-sample/utils/style",
     "hooks": "@nettee-sample/ui/hooks",
-    "lib": "@nettee-sample/ui/lib",
+    "lib": "@nettee-sample/utils",
     "ui": "@nettee-sample/ui/components"
   }
 }

@@ -17,6 +17,11 @@
       "types": "./dist/date/index.d.ts",
       "import": "./dist/date/index.js",
       "require": "./dist/date/index.cjs"
+    },
+    "./style": {
+      "types": "./dist/style/index.d.ts",
+      "import": "./dist/style/index.js",
+      "require": "./dist/style/index.cjs"
     }
   },
   "main": "dist/index.js",
@@ -27,7 +32,9 @@
     "postinstall": "pnpm build"
   },
   "dependencies": {
-    "dayjs": "^1.11.13"
+    "clsx": "^2.1.1",
+    "dayjs": "^1.11.13",
+    "tailwind-merge": "^2.5.4"
   },
   "devDependencies": {
     "@nettee-sample/build-config": "workspace:*",
