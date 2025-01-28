@@ -1,0 +1,38 @@
+{
+  "name": "@nettee-sample/utils",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./query": {
+      "types": "./dist/query/index.d.ts",
+      "import": "./dist/query/index.js",
+      "require": "./dist/query/index.cjs"
+    },
+    "./date": {
+      "types": "./dist/date/index.d.ts",
+      "import": "./dist/date/index.js",
+      "require": "./dist/date/index.cjs"
+    }
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "node build.js",
+    "dev": "node build.js --watch",
+    "postinstall": "pnpm build"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.13"
+  },
+  "devDependencies": {
+    "@nettee-sample/build-config": "workspace:*",
+    "@nettee-sample/eslint-config": "workspace:*",
+    "@nettee-sample/typescript-config": "workspace:*",
+    "typescript": "^5.6.3"
+  }
+}
