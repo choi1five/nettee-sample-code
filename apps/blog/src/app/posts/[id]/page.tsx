@@ -18,7 +18,6 @@ export default async function PostDetail({ params }: Props) {
   try {
     const { id } = await params;
     const [post, comments] = await Promise.all([postAPI.get(id), commentAPI.getAll(id)]);
-    console.log('comment 새로 요청했어!');
 
     return (
       <div className="space-y-8">
@@ -40,7 +39,7 @@ export default async function PostDetail({ params }: Props) {
         </div>
         <div>
           <h2 className="mb-4 text-2xl font-semibold">댓글</h2>
-          <CommentSection postId={id} comments={comments} />
+          <CommentSection comments={comments} postId={id} />
         </div>
         <div className="border-t pt-4">
           <Button variant="outline" asChild>

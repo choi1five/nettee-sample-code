@@ -1,3 +1,5 @@
+import { CursorPaginationResponse } from '@nettee-sample/hooks';
+
 export interface Post {
   id: string;
   title: string;
@@ -24,11 +26,7 @@ export type CreatePostDTO = Pick<Post, 'title' | 'content' | 'author'>;
 export type UpdatePostDTO = Partial<CreatePostDTO>;
 export type CreateCommentDTO = Pick<Comment, 'content' | 'author'>;
 
-export interface CursorPaginationResponse {
-  data: Post[];
-  nextCursor: string | null;
-  hasMore: boolean;
-}
+export type GetPostsResponse = CursorPaginationResponse<Post>;
 
 export interface OffsetPaginationResponse {
   data: Post[];

@@ -20,7 +20,7 @@ export default function WriteForm() {
         <Input name="title" placeholder="제목을 입력하세요" required />
       </div>
       <div className="space-y-2">
-        <Textarea name="content" placeholder="내용을 입력하세요" required className="min-h-[300px] resize-none" />
+        <Textarea className="min-h-[300px] resize-none" name="content" placeholder="내용을 입력하세요" required />
       </div>
       <div className="space-y-2">
         <Input name="author" placeholder="작성자" required />
@@ -29,7 +29,7 @@ export default function WriteForm() {
         <Button type="button" variant="outline" onClick={() => router.back()}>
           취소
         </Button>
-        <Button type="submit" disabled={isPending}>
+        <Button disabled={isPending} type="submit">
           {isPending ? '작성 중...' : '작성 완료'}
         </Button>
       </div>

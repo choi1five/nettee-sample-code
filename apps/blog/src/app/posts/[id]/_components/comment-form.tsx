@@ -4,9 +4,9 @@ import { Button } from '@nettee-sample/ui/components/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@nettee-sample/ui/components/card';
 import { Input } from '@nettee-sample/ui/components/input';
 import { Textarea } from '@nettee-sample/ui/components/textarea';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 
-import { createComment, createTestComment } from '../_actions';
+import { createComment } from '../_actions';
 
 interface Props {
   postId: string;
@@ -14,15 +14,6 @@ interface Props {
 
 export default function CommentForm({ postId }: Props) {
   const formRef = useRef<HTMLFormElement>(null);
-  const [count, setCount] = useState(1);
-  const handleClickPlusButton = () => {
-    setCount(prev => prev + 1);
-  };
-  const handleAddCommentButton = async () => {
-    const data = new FormData();
-    data.append('postId', postId);
-    await createTestComment(data);
-  };
 
   return (
     <Card className="mt-6">
@@ -38,18 +29,12 @@ export default function CommentForm({ postId }: Props) {
           }}
           className="space-y-4">
           <input name="postId" value={postId} hidden readOnly />
-          <Textarea name="content" placeholder="댓글을 입력하세요" required className="min-h-[100px] resize-none" />
+          <Textarea className="min-h-[100px] resize-none" name="content" placeholder="댓글을 입력하세요" required />
           <div className="flex items-center gap-4">
-            <Input name="author" placeholder="작성자" required className="max-w-[200px]" />
+            <Input className="max-w-[200px]" name="author" placeholder="작성자" required />
           </div>
           <Button className="w-24">댓글 달기</Button>
         </form>
-        <Button type="button" className="w-24" onClick={handleAddCommentButton}>
-          댓글 달기
-        </Button>
-        <Button className="w-24" onClick={handleClickPlusButton}>
-          {count}
-        </Button>
       </CardContent>
     </Card>
   );
