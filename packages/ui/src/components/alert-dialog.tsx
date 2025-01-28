@@ -1,7 +1,7 @@
 'use client';
 
 import { buttonVariants } from '@nettee-sample/ui/components/button';
-import { cn } from '@nettee-sample/ui/lib/utils';
+import { cn } from '@nettee-sample/utils/style';
 import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
 import * as React from 'react';
 

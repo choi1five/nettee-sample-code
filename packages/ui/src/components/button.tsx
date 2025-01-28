@@ -1,4 +1,4 @@
-import { cn } from '@nettee-sample/ui/lib/utils';
+import { cn } from '@nettee-sample/utils/style';
 import { Slot } from '@radix-ui/react-slot';
 import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';

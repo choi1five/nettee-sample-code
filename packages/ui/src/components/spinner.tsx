@@ -1,4 +1,4 @@
-import { cn } from '@nettee-sample/ui/lib/utils';
+import { cn } from '@nettee-sample/utils/style';
 import { Loader2 } from 'lucide-react';
 import { SVGProps } from 'react';
 
