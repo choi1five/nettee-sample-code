@@ -1,6 +1,7 @@
+import { buildQueryString } from '@nettee-sample/utils/query';
+
 import { CreatePostDTO, GetPostsResponse, Post, UpdatePostDTO } from '@/types';
 
-import { buildQueryString } from '../utils/query';
 import { httpClient } from './http-client';
 
 const postAPI = {
