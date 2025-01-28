@@ -9,12 +9,24 @@
       "path": "packages/ui",
     },
     {
+      "name": "hooks",
+      "path": "packages/hooks",
+    },
+    {
+      "name": "utils",
+      "path": "packages/utils",
+    },
+    {
       "name": "eslint-config",
       "path": "packages/eslint-config",
     },
     {
       "name": "typescript-config",
       "path": "packages/typescript-config",
+    },
+    {
+      "name": "build-config",
+      "path": "packages/build-config",
     },
     {
       "name": "root",
