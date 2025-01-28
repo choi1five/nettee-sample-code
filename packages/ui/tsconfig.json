@@ -4,7 +4,8 @@
     //"outDir": "dist"
     "baseUrl": ".",
     "paths": {
-      "@nettee-sample/ui/*": ["./src/*"]
+      "@nettee-sample/ui/*": ["./src/*"],
+      "@nettee-sample/utils/*": ["../utils/dist/*"]
     }
   },
   "include": ["."],
