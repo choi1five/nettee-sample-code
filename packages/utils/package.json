@@ -34,7 +34,8 @@
   "dependencies": {
     "clsx": "^2.1.1",
     "dayjs": "^1.11.13",
-    "tailwind-merge": "^2.5.4"
+    "tailwind-merge": "^2.5.4",
+    "zod": "^3.24.1"
   },
   "devDependencies": {
     "@nettee-sample/build-config": "workspace:*",
