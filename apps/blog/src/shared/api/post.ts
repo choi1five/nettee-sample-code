@@ -1,6 +1,6 @@
 import { buildQueryString } from '@nettee-sample/utils/query';
 
-import { CreatePostDTO, GetPostsResponse, Post, UpdatePostDTO } from '@/types';
+import { CreatePostDTO, GetPostsResponse, Post, UpdatePostDTO } from '@/shared/types';
 
 import { httpClient } from './http-client';
 
