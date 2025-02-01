@@ -1,4 +1,4 @@
-import { Comment, CreateCommentDTO } from '@/types';
+import { Comment, CreateCommentDTO } from '@/shared/types';
 
 import { httpClient } from './http-client';
 
