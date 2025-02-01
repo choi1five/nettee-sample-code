@@ -3,11 +3,11 @@ import { DATE_FORMAT, formatDate } from '@nettee-sample/utils/date';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-import { commentAPI, postAPI } from '@/lib/api';
-import { ROUTES } from '@/lib/constants/routes';
+import DeletePostModal from '@/features/post/delete-post/delete-post.ui';
+import { commentAPI, postAPI } from '@/shared/api';
+import { ROUTES } from '@/shared/config/routes';
 
 import CommentSection from './_components/comment-section';
-import DeletePostModal from './_components/delete-post-modal';
 
 interface Props {
   params: Promise<{

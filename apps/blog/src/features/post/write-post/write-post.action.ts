@@ -3,11 +3,11 @@
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 
-import { postAPI } from '@/lib/api';
-import { ROUTES } from '@/lib/constants/routes';
-import { Post } from '@/types';
+import { postAPI } from '@/shared/api';
+import { ROUTES } from '@/shared/config/routes';
+import { Post } from '@/shared/types';
 
-export async function createPost(state: unknown, formData: FormData) {
+export async function writePost(state: unknown, formData: FormData) {
   const title = formData.get('title') as string;
   const content = formData.get('content') as string;
   const author = formData.get('author') as string;
@@ -22,7 +22,7 @@ export async function createPost(state: unknown, formData: FormData) {
     post = await postAPI.create({ title, content, author });
     revalidatePath(ROUTES.home());
   } catch (error) {
-    console.error('여기 실패 맞아?', error);
+    console.error(error);
     return { error: '게시글 작성에 실패했습니다.' };
   }
 

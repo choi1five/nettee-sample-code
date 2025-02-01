@@ -3,9 +3,9 @@
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 
-import { postAPI } from '@/lib/api';
-import { ROUTES } from '@/lib/constants/routes';
-import { Post } from '@/types';
+import { postAPI } from '@/shared/api';
+import { ROUTES } from '@/shared/config/routes';
+import { Post } from '@/shared/types';
 
 export async function editPost(_: unknown, formData: FormData) {
   const postId = formData.get('id') as string;
