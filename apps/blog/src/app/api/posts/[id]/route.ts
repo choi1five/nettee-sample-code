@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-import { readData, writeData } from '@/lib/api/json';
-import { Post, UpdatePostDTO } from '@/types';
+import { readData, writeData } from '@/server/json';
+import { Post, UpdatePostDTO } from '@/shared/types';
 
 export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {

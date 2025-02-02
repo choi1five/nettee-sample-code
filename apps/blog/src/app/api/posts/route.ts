@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-import { readData, writeData } from '@/lib/api/json';
-import { CreatePostDTO, Post } from '@/types';
+import { readData, writeData } from '@/server/json';
+import { CreatePostDTO, Post } from '@/shared/types';
 
 export async function GET() {
   try {

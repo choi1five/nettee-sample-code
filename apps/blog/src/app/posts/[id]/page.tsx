@@ -1,13 +1,13 @@
 import { Button } from '@nettee-sample/ui/components/button';
-import { DATE_FORMAT, formatDate } from '@nettee-sample/utils/date';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
+import { commentAdapter } from '@/entities/comment/comment.adapter';
+import { postAdapter } from '@/entities/post/post.adapter';
 import DeletePostModal from '@/features/post/delete-post/delete-post.ui';
 import { commentAPI, postAPI } from '@/shared/api';
 import { ROUTES } from '@/shared/config/routes';
-
-import CommentSection from './_components/comment-section';
+import CommentSection from '@/widgets/comment/comment-section.ui';
 
 interface Props {
   params: Promise<{
@@ -18,25 +18,28 @@ interface Props {
 export default async function PostDetail({ params }: Props) {
   try {
     const { id } = await params;
-    const [post, comments] = await Promise.all([postAPI.get(id), commentAPI.getAll(id)]);
+    const [{ title, id: postId, author, createdAt, content }, comments] = await Promise.all([
+      postAPI.get(id).then(postAdapter.toDetail),
+      commentAPI.getAll(id).then(comments => comments.map(commentAdapter.toBase)),
+    ]);
 
     return (
       <div className="space-y-8">
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-3xl font-bold">{post.title}</h1>
+            <h1 className="text-3xl font-bold">{title}</h1>
             <div className="space-x-2">
               <Button variant="outline" asChild>
-                <Link href={ROUTES.editPost(post.id)}>수정</Link>
+                <Link href={ROUTES.editPost(postId)}>수정</Link>
               </Button>
-              <DeletePostModal postId={id} />
+              <DeletePostModal postId={postId} />
             </div>
           </div>
           <div className="flex justify-between text-sm text-slate-500">
-            <span>{post.author}</span>
-            <time>{formatDate(post.createdAt, DATE_FORMAT.WITH_TIME)}</time>
+            <span>{author}</span>
+            <time>{createdAt}</time>
           </div>
-          <p className="whitespace-pre-wrap text-slate-600">{post.content}</p>
+          <p className="whitespace-pre-wrap text-slate-600">{content}</p>
         </div>
         <div>
           <h2 className="mb-4 text-2xl font-semibold">댓글</h2>

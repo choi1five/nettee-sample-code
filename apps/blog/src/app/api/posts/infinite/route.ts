@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-import { readData } from '@/lib/api/json';
-import { GetPostsResponse } from '@/types';
+import { readData } from '@/server/json';
+import { GetPostsResponse } from '@/shared/types';
 
 const DEFAULT_LIMIT = 10;
 
