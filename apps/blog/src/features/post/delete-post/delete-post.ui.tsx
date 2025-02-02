@@ -13,31 +13,22 @@ import {
 } from '@nettee-sample/ui/components/alert-dialog';
 import { Button } from '@nettee-sample/ui/components/button';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
 
-import { postAPI } from '@/shared/api';
 import { ROUTES } from '@/shared/config/routes';
+
+import { useDeletePost } from './delete-post.hook';
 
 interface Props {
   postId: string;
 }
 
 export default function DeletePostModal({ postId }: Props) {
+  const { deletePost, isPending } = useDeletePost();
   const router = useRouter();
-  const [isDeleting, setIsDeleting] = useState(false);
 
   const handleDelete = async () => {
-    if (isDeleting) return;
-
-    setIsDeleting(true);
-    try {
-      await postAPI.delete(postId);
-      router.push(ROUTES.home());
-    } catch (error) {
-      console.error('Failed to delete post:', error);
-    } finally {
-      setIsDeleting(false);
-    }
+    await deletePost(postId);
+    router.push(ROUTES.home());
   };
 
   return (
@@ -54,9 +45,9 @@ export default function DeletePostModal({ postId }: Props) {
           <AlertDialogCancel>취소</AlertDialogCancel>
           <AlertDialogAction
             className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
-            disabled={isDeleting}
+            disabled={isPending}
             onClick={handleDelete}>
-            {isDeleting ? '삭제 중...' : '삭제'}
+            {isPending ? '삭제 중...' : '삭제'}
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
