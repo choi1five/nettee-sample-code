@@ -1,10 +1,9 @@
 import { Button } from '@nettee-sample/ui/components/button';
 import Link from 'next/link';
 
-import { postAPI } from '@/lib/api';
-import { ROUTES } from '@/lib/constants/routes';
-
-import PostList from './_components/post-list';
+import { postAPI } from '@/shared/api';
+import { ROUTES } from '@/shared/config/routes';
+import PostSection from '@/widgets/post/post-section.ui';
 
 export const dynamic = 'force-dynamic';
 
@@ -19,7 +18,7 @@ export default async function Home() {
           <Link href={ROUTES.writePost()}>새 게시글 작성</Link>
         </Button>
       </div>
-      <PostList initialPosts={initialPosts} />
+      <PostSection initialPosts={initialPosts} />
     </div>
   );
 }

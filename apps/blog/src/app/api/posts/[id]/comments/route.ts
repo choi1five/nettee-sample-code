@@ -1,11 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-import { readData, writeData } from '@/lib/api/json';
-import { Comment, CreateCommentDTO } from '@/types';
+import { readData, writeData } from '@/server/json';
+import { Comment, CreateCommentDTO } from '@/shared/types';
 
 export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
-    console.log('comment GET 요청');
     const data = await readData();
     const { id } = await params;
     const comments = data.comments.filter(c => c.postId === id);
