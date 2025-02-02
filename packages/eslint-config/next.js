@@ -5,7 +5,7 @@ import pluginReact from 'eslint-plugin-react';
 import pluginReactHooks from 'eslint-plugin-react-hooks';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
-import pluginCheckFile from 'eslint-plugin-check-file';
+// import pluginCheckFile from 'eslint-plugin-check-file';
 import { config as baseConfig } from './base.js';
 
 /**
@@ -57,15 +57,15 @@ export const nextJsConfig = [
       'react/prop-types': 'off',
     },
   },
-  {
-    plugins: { 'check-file': pluginCheckFile },
-    rules: {
-      'check-file/filename-naming-convention': [
-        'error',
-        {
-          '**/src/**/*': 'KEBAB_CASE',
-        },
-      ],
-    },
-  },
+  // {
+  //   plugins: { 'check-file': pluginCheckFile },
+  //   rules: {
+  //     'check-file/filename-naming-convention': [
+  //       'error',
+  //       {
+  //         '**/src/**/*': 'KEBAB_CASE',
+  //       },
+  //     ],
+  //   },
+  // },
 ];
