@@ -1,9 +1,9 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 
-import { DatabaseStructure } from '@/shared/types';
+import { DatabaseStructure } from '@/types';
 
-const dataFilePath = path.join(process.cwd(), 'src/server/data/db.json');
+const dataFilePath = path.join(process.cwd(), 'src/data/db.json');
 
 export async function readData(): Promise<DatabaseStructure> {
   const data = await fs.readFile(dataFilePath, 'utf-8');
