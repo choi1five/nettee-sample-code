@@ -1,0 +1,20 @@
+{
+  "extends": "@nettee-sample/typescript-config/nextjs.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@nettee-sample/ui/*": ["../../packages/ui/src/*"],
+      "@nettee-sample/http-client": ["../../packages/http-client/dist"],
+      "@nettee-sample/hooks": ["../../packages/hooks/dist"],
+      "@nettee-sample/utils/*": ["../../packages/utils/dist/*"]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": ["next-env.d.ts", "next.config.mjs", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
+}

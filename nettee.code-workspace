@@ -5,6 +5,10 @@
       "path": "apps/blog",
     },
     {
+      "name": "server",
+      "path": "apps/server",
+    },
+    {
       "name": "ui",
       "path": "packages/ui",
     },
