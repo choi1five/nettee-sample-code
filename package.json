@@ -11,7 +11,8 @@
     "postinstall": "corepack enable",
     "lint": "turbo lint",
     "lint-staged": "lint-staged",
-    "prepare": "husky"
+    "prepare": "husky",
+    "start": "turbo start --filter='./apps/*'"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.6.1",
